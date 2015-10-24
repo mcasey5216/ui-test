@@ -1,16 +1,9 @@
-// on click ever of add ranking
-//   method to parse name and score
-//   put it into an hash of name and score
-//   if name exists add to score
-//   order by score
-//   append to li
-
 var nameScoreHash = {};
 
 var addInput = function() {
   var wrapper = $("#new-games")
   $(wrapper).append(
-    '<input type="text" placeholder="Name, score"><br>'
+    '<input type="text" placeholder="Name, score">'
   );
 }
 
@@ -48,23 +41,36 @@ $("#add-game").click(function() {
   addInput();
 });
 
-$("#add").click(function(){
+$("#add").click(function() {
   var games = $("#new-games").find("input")
   games.each(function(){
     var nameScore = $(this).val();
-    var nameScoreArray = nameScore.split(", ");
-    if (nameScoreHash[nameScoreArray[0]] === undefined) {
-      nameScoreHash[nameScoreArray[0]] = parseInt(nameScoreArray[1]);
-    } else {
-      nameScoreHash[nameScoreArray[0]] += parseInt(nameScoreArray[1]);
-    }
-  })
+      if (nameScore) {
+        var nameScoreArray = nameScore.split(", ");
+        if (nameScoreArray.length === 2) {
+          var score = parseInt(nameScoreArray[1]);
+            if (!isNaN(score)){
+              if (nameScoreHash[nameScoreArray[0]] === undefined) {
+                nameScoreHash[nameScoreArray[0]] = score;
+              } else {
+                nameScoreHash[nameScoreArray[0]] += score;
+              }
+            } else {
+              alert("score is not a number");
+            }
+        } else {
+          alert("wrong format");
+        }
+      } else {
+        alert("must fill in all forms");
+      }
+  });
   $("div#new-games > input").remove();
   addInput();
   scoreboardSort();
 });
 
-$("#clear").click(function(){
+$("#clear").click(function() {
   nameScoreHash = {};
   $("#rankings").empty();
   $("input").val('');
