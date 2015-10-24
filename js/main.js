@@ -7,23 +7,12 @@
 
 var nameScoreHash = {};
 
-$("#add").click(function(){
-  var nameScore = $("input").val();
-  var nameScoreArray = nameScore.split(", ");
-  if (nameScoreHash[nameScoreArray[0]] === undefined) {
-    nameScoreHash[nameScoreArray[0]] = parseInt(nameScoreArray[1]);
-  } else {
-    nameScoreHash[nameScoreArray[0]] += parseInt(nameScoreArray[1]);
-  }
-  $("input").val('');
-  scoreboardSort();
-});
-
-$("#clear").click(function(){
-  nameScoreHash = {};
-  $("#rankings").empty();
-  $("input").val('');
-});
+var addInput = function() {
+  var wrapper = $("#new-games")
+  $(wrapper).append(
+    '<input type="text" placeholder="Name, score"><br>'
+  );
+}
 
 var scoreboardSort = function() {
   var scoreboard = [];
@@ -44,7 +33,39 @@ var scoreboardSort = function() {
     }
     lastScore = scoreboard[i][1];
     $("#rankings").append(
-      "<li>"+ rank + ". " + scoreboard[i][0] + ", " + scoreboard[i][1] + " pts</li>"
+      "<li>"
+      + rank
+      + ". "
+      + scoreboard[i][0]
+      + ", "
+      + scoreboard[i][1]
+      + " pts</li>"
     );
   }
 }
+
+$("#add-game").click(function() {
+  addInput();
+});
+
+$("#add").click(function(){
+  var games = $("#new-games").find("input")
+  games.each(function(){
+    var nameScore = $(this).val();
+    var nameScoreArray = nameScore.split(", ");
+    if (nameScoreHash[nameScoreArray[0]] === undefined) {
+      nameScoreHash[nameScoreArray[0]] = parseInt(nameScoreArray[1]);
+    } else {
+      nameScoreHash[nameScoreArray[0]] += parseInt(nameScoreArray[1]);
+    }
+  })
+  $("div#new-games > input").remove();
+  addInput();
+  scoreboardSort();
+});
+
+$("#clear").click(function(){
+  nameScoreHash = {};
+  $("#rankings").empty();
+  $("input").val('');
+});
