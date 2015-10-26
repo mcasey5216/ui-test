@@ -11,10 +11,14 @@ var addInput = function() {
   );
 }
 
-var addAlert = function() {
+var validationAlert = function(text) {
   var wrapper = $("#alert")
   $(wrapper).append(
     '<div id="new-alert"></div>'
+  );
+  document.getElementById('new-alert').innerHTML=(
+    text
+    + '<button id="x-out">x</button>'
   );
 }
 
@@ -54,7 +58,7 @@ var scoreboardSort = function() {
   }
 }
 
-addInput();
+addInput(); // input box for load of page
 
 $("#add-game").click(function() {
   addInput();
@@ -75,18 +79,16 @@ $("#add").click(function() {
             nameScoreHash[nameScoreArray[0]] += score;
           }
         } else {
-        document.getElementById('alert').innerHTML="Score must be a digit!"
+          validationAlert('Score must be a digit!');
         }
       } else {
-        document.getElementById('alert').innerHTML="Please use the shown format!"
+        validationAlert('Please use the shown format!');
       }
     } else {
-      addAlert();
-      document.getElementById('new-alert').innerHTML='You left the field empty!<button id="x-out">x</button>'
-      return;
+      validationAlert('You left the field empty!');
     }
   });
-  $("div#new-games > input").remove();
+  $("div#new-games #game").remove();
   addInput();
   scoreboardSort();
 });
@@ -94,9 +96,9 @@ $("#add").click(function() {
 $("#clear").click(function() {
   nameScoreHash = {};
   $("#rankings").empty();
-  $("#new-games #x-out").remove();
-  $("#new-games br").remove();
-  $("div#new-games input").remove();
+  $("div#new-games #game").remove();
+  $("div#new-games #new-alert").remove();
+  addInput();
 });
 
 deleteInstance("#game");

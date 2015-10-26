@@ -1,3 +1,53 @@
+@font-face {
+    font-family: 'Score-Board';
+    src:url('Score-Board.ttf.woff') format('woff'),
+        url('Score-Board.ttf.svg#Score-Board') format('svg'),
+        url('Score-Board.ttf.eot'),
+        url('Score-Board.ttf.eot?#iefix') format('embedded-opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 li {
   list-style-type: none;
+}
+
+body {
+  text-align: center;
+  font-family: 'Score-Board';
+}
+
+#page-wrap {
+  text-align: left;
+  width: 800px;
+  margin: 0 auto;
+}
+
+.button {
+  color: #222;
+  padding: 10px;
+  background-color: #ddd;
+  background-image: linear-gradient(top, #ddd, #fff);
+  box-shadow: inset 0 0 0 1px #27496d;
+  border: none;
+  border-radius: 3px;
+  margin-bottom: 5px;
+}
+
+.button:hover{
+  box-shadow: inset 0 0 0 1px #27496d,0 5px 15px #193047;
+}
+
+.button:active{
+  box-shadow: inset 0 0 0 1px #27496d,inset 0 5px 30px #193047;
+}
+input[type="text"] {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: solid 1px #333;
+  box-shadow: inset 1px 1px 2px 0 #707070;
+  transition: box-shadow 0.3s;
+}
+input[type="text"]:focus {
+  border: solid 5px #969696;
 }
