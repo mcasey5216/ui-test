@@ -7,18 +7,19 @@
   </head>
   <body>
     <div id="page-wrap">
-      <div class="left">
-        <h1>Rankings</h1>
-        <div id="new-games">
-          <button id="add-game" class="button">Add Game</button><br>
+
           <div id="alert"></div>
+      <div class="left">
+        <div id="new-games">
+          <button id="add" class="button">Add To Rankings</button>
+          <button id="add-game" class="button">Add Game</button><br>
+          <button id="clear" class="button">Clear Rankings</button>
         </div>
-        <button id="add" class="button">Add To Rankings</button>
       </div>
 
-      <div id="scoreboard-display">
+      <div class="right">
+        <h1>Rankings</h1>
         <ul id="rankings"></ul>
-        <button id="clear" class="button">Clear Rankings</button>
       </div>
 
       <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
