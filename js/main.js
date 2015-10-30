@@ -4,7 +4,7 @@ var addInput = function() {
   var wrapper = $("#new-games")
   $(wrapper).append(
     '<div id="game">'
-    + '<input type="text" placeholder="eg. Janet Pluchinsky, 10">'
+    + '<input type="text" placeholder="Janet Pluchinsky, 10">'
     + '<button id="x-out">x</button>'
     + '<br>'
     + '</div>'
@@ -17,8 +17,8 @@ var validationAlert = function(text) {
     '<div id="new-alert"></div>'
   );
   document.getElementById('new-alert').innerHTML=(
-    text
-    + '<button id="x-out">x</button>'
+    '<button id="x-out">x</button>'
+    + text
   );
 }
 
