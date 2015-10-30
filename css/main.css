@@ -9,19 +9,11 @@
 }
 
 html {
-  background: url(dartboard.jpg) no-repeat center center fixed;
+  background: url(dartboard.png) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-}
-
-#page-wrap {
-  text-align: left;
-  max-width: 800px;
-  min-height: 400px;
-  margin: 0 auto;
-  padding: 12px;
 }
 
 body {
@@ -33,10 +25,21 @@ h1 {
   margin: 0px;
 }
 
+li {
+  list-style-type: none;
+}
+
 .left {
   width: 30%;
   float: left;
   margin-top: 1em;
+}
+
+#page-wrap {
+  text-align: left;
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 12px;
 }
 
 .right {
@@ -51,17 +54,12 @@ h1 {
   border: .2em solid;
 }
 
-li {
-  list-style-type: none;
-}
-
 .button {
   font-family: 'Score-Board';
   color: whitesmoke;
   font-size: 15px;
   padding: 10px;
   background-color: #e71a79;
-  background-image: linear-gradient(top, #ddd, #fff);
   box-shadow: inset 0 0 0 1px #27496d;
   border: none;
   border-radius: 3px;
@@ -69,14 +67,30 @@ li {
   width: 100%;
 }
 
+.button:hover{
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+}
+
+.button:active{
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+}
+
 button#x-out {
   font-family: 'Score-Board';
   color: #e71a79;
-  padding: 10px;
-  background-color: black;
+  padding: 14px;
+  background-color: white;
   border: none;
-  border-radius: 3px;
-  margin-bottom: 1em;
+  vertical-align: top
+}
+
+input[type="text"] {
+  color: #e71a79;
+  font-size: 15px;
+  padding: 10px;
+  width: 80%;
+  font-family: 'Score-Board';
+  margin-bottom: 10px;
 }
 
 #new-alert button#x-out {
@@ -86,32 +100,15 @@ button#x-out {
   background-color: black;
   border: none;
   border-radius: 3px;
-  margin-bottom: 1em;
-}
-
-.button:hover{
-  box-shadow: inset 0 0 0 1px #27496d,0 5px 15px #193047;
-}
-
-.button:active{
-  box-shadow: inset 0 0 0 1px #27496d,inset 0 5px 30px #193047;
-}
-
-input[type="text"] {
-  color: #e71a79;
-  font-size: 15px;
-  padding: 10px;
-  width: 185px;
-  font-family: 'Score-Board';
-  margin-bottom: 10px;
-  box-shadow: inset 1px 1px 2px 0 #707070;
-  transition: box-shadow 0.3s;
+  vertical-align: bottom;
 }
 
 #new-alert {
   color: #e71a79;
   background-color: black;
-  padding-top: 10px;
+  padding-top: 5px;
+  padding-bottom: 15px;
   margin-bottom: 0px;
   max-width: 100%;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
 }

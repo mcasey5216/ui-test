@@ -17,7 +17,7 @@ var validationAlert = function(text) {
     '<div id="new-alert"></div>'
   );
   document.getElementById('new-alert').innerHTML=(
-    '<button id="x-out">x</button>'
+    '<button id="x-out">X</button>'
     + text
   );
 }
